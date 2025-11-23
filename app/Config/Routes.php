@@ -29,6 +29,9 @@ $routes->group('admin', ['namespace' => 'App\\Controllers\\Admin'], function ($r
     $routes->post('siswa/update/(:num)', 'SiswaController::update/$1', ['filter' => 'auth']);
     $routes->get('siswa/delete/(:num)', 'SiswaController::delete/$1', ['filter' => 'auth']);
     $routes->get('siswa/export', 'SiswaController::export', ['filter' => 'auth']);
+    $routes->get('siswa/import', 'SiswaController::import', ['filter' => 'auth']);
+    $routes->post('siswa/import', 'SiswaController::processImport', ['filter' => 'auth']);
+    $routes->get('siswa/download-template', 'SiswaController::downloadTemplate', ['filter' => 'auth']);
 
     $routes->get('soal', 'SoalController::index', ['filter' => 'auth']);
     $routes->get('soal/create', 'SoalController::create', ['filter' => 'auth']);

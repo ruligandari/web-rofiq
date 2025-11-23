@@ -6,8 +6,11 @@
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h5 class="card-title fw-semibold">Data Siswa</h5>
             <div>
+                <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#importModal">
+                    <i class="ti ti-file-import"></i> Import Excel
+                </button>
                 <a href="<?= base_url('admin/siswa/create') ?>" class="btn btn-primary">Tambah Siswa</a>
-                <a href="<?= base_url('admin/siswa/export') ?>" class="btn btn-success">Export Excel</a>
+                <a href="<?= base_url('admin/siswa/export') ?>" class="btn btn-secondary">Export Excel</a>
             </div>
         </div>
 
@@ -51,6 +54,47 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- Import Modal -->
+<div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="importModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="importModalLabel">Import Data Siswa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="<?= base_url('admin/siswa/import') ?>" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="alert alert-info">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <strong>Format Excel yang diharapkan:</strong>
+                            <a href="<?= base_url('admin/siswa/download-template') ?>" class="btn btn-sm btn-outline-primary">
+                                <i class="ti ti-download"></i> Download Template
+                            </a>
+                        </div>
+                        <ul class="mb-0 mt-2">
+                            <li>Kolom A: Nama Lengkap</li>
+                            <li>Kolom B: Username (Unik)</li>
+                            <li>Kolom C: Password (Min 6 karakter)</li>
+                        </ul>
+                        <small class="text-muted">Baris pertama akan diabaikan (header)</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="excel_file" class="form-label">Pilih File Excel</label>
+                        <input type="file" class="form-control" id="excel_file" name="excel_file" accept=".xls,.xlsx" required>
+                        <small class="text-muted">Format: .xls atau .xlsx</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Import</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
