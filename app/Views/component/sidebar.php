@@ -64,6 +64,18 @@ $segment2 = $uri->getSegment(2); // admin/[segment2]/...
                 </li>
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                    <span class="hide-menu">Settings</span>
+                </li>
+                <li class="sidebar-item <?= ($segment2 == 'profile') ? 'active' : '' ?>">
+                    <a class="sidebar-link <?= ($segment2 == 'profile') ? 'active' : '' ?>" href="<?= base_url('admin/profile') ?>" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-user"></i>
+                        </span>
+                        <span class="hide-menu">Profile</span>
+                    </a>
+                </li>
+                <li class="nav-small-cap">
+                    <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Logout</span>
                 </li>
 

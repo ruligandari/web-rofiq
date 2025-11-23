@@ -46,6 +46,9 @@ $routes->group('admin', ['namespace' => 'App\\Controllers\\Admin'], function ($r
 
     $routes->get('nilai', 'NilaiController::index', ['filter' => 'auth']);
     $routes->get('nilai/export', 'NilaiController::export', ['filter' => 'auth']);
+
+    $routes->get('profile', 'ProfileController::index', ['filter' => 'auth']);
+    $routes->post('profile/update', 'ProfileController::update', ['filter' => 'auth']);
 });
 
 $routes->group('api', ['namespace' => 'App\\Controllers\\Api'], function($routes) {
