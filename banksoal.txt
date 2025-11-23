@@ -1,0 +1,139 @@
+Apa fungsi utama camshaft pada mesin?
+A. Mengatur aliran bahan bakar
+B. Mengatur buka tutup katup
+C. Menyalakan busi
+D. Mendinginkan mesin
+Jawaban: B
+
+Camshaft terletak pada bagian mana?
+A. Kepala silinder
+B. Blok mesin
+C. Kopling
+D. Sistem bahan bakar
+Jawaban: A
+
+Camshaft menggerakkan bagian mana pada mesin?
+A. Piston
+B. Katup
+C. Busi
+D. Radiator
+Jawaban: B
+
+Sistem camshaft double overhead camshaft disebut?
+A. SOHC
+B. DOHC
+C. FWD
+D. RWD
+Jawaban: B
+
+Camshaft pada mesin 4 tak berfungsi pada satu putaran penuh crankshaft sebanyak?
+A. 1 kali
+B. 2 kali
+C. 4 kali
+D. 3 kali
+Jawaban: A
+
+Camshaft bisa digerakkan oleh?
+A. Timing belt
+B. Rantai timing
+C. Gear roda gigi
+D. Semua benar
+Jawaban: D
+
+Jumlah camshaft pada mesin DOHC adalah?
+A. 1
+B. 2
+C. 3
+D. 4
+Jawaban: B
+
+Camshaft berperan penting pada?
+A. Sistem pendingin
+B. Pengaturan katup masuk dan keluar
+C. Sistem bahan bakar
+D. Sistem pengapian
+Jawaban: B
+
+Apa yang terjadi jika camshaft rusak?
+A. Mesin tidak bisa menghidupkan api
+B. Katup tidak bekerja dengan baik
+C. Oli mesin bocor
+D. Radiator rusak
+Jawaban: B
+
+Profil camshaft menentukan?
+A. Waktu buka tutup katup
+B. Tekanan oli mesin
+C. Waktu pengapian
+D. Kapasitas bahan bakar
+Jawaban: A
+
+Camshaft pada mesin bensin biasanya terbuat dari bahan?
+A. Baja karbon tinggi
+B. Aluminium
+C. Plastik
+D. Karet
+Jawaban: A
+
+Mekanisme penggerak camshaft yang paling umum digunakan adalah?
+A. Rantai
+B. Sabuk baja
+C. Sabuk karet (timing belt)
+D. Roda gigi
+Jawaban: C
+
+Apa fungsi pelatuk (lobe) pada camshaft?
+A. Membuka katup
+B. Menutup katup
+C. Memutar crankshaft
+D. Menyalakan busi
+Jawaban: A
+
+Pada mesin DOHC, camshaft biasanya mengatur jumlah katup per silinder sebanyak?
+A. 2 katup
+B. 3 katup
+C. 4 katup
+D. 5 katup
+Jawaban: C
+
+Bagian camshaft yang bersentuhan langsung dengan katup adalah?
+A. Poros utama
+B. Pelatuk (lobe)
+C. Gear penggerak
+D. Bearing
+Jawaban: B
+
+Kerusakan pada camshaft dapat menyebabkan?
+A. Mesin kehilangan tenaga
+B. Suara mesin menjadi kasar
+C. Konsumsi bahan bakar meningkat
+D. Semua benar
+Jawaban: D
+
+Pada mesin 4-tak, camshaft berputar sebanding dengan?
+A. Kecepatan piston
+B. Kecepatan roda gigi
+C. Setengah kecepatan crankshaft
+D. Sama dengan kecepatan crankshaft
+Jawaban: C
+
+Apa yang mengatur posisi camshaft terhadap crankshaft?
+A. Tensioner
+B. Rantai timing
+C. Timing gear
+D. Semua benar
+Jawaban: D
+
+Camshaft berfungsi membuka katup selama?
+A. Setiap putaran crankshaft
+B. Waktu yang telah ditentukan oleh profil lobe
+C. Saat busi menyala
+D. Saat oli dialirkan
+Jawaban: B
+
+Mesin berteknologi camshaft ganda digunakan untuk?
+A. Meningkatkan efisiensi pembakaran
+B. Mempercepat pendinginan mesin
+C. Mengurangi konsumsi oli
+D. Memperbesar kapasitas tangki bahan bakar
+Jawaban: A

@@ -1,0 +1,8 @@
+#siswa login di aplikasi AR android
+siswa melakukan login dengan akun yang sudah dibuat oleh admin dihalaman data siswa
+#proses mengerjakan soal
+siswa melakukan mengerjakan soal dengan mengklik tombol mengerjakan soal
+- api akan mengirimkan data berupa 10 soal yang teracak mengirim index soalnya saja
+- di aplikasi ar akan menyimpan urutan index soal tersebut
+- di aplikasi ar akan menampilkan satu persatu soal, dengan fetch ke api berdasar index soal tersebut
+- ketika siswa menyelesaikan seluruh soal (10 soal), maka akan di simpan di database post data ke api. data yang dikirim berupa id_siswa dan total nilai yang diperoleh

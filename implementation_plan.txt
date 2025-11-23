@@ -1,0 +1,68 @@
+# MVP Quiz Application Implementation Plan
+
+## Goal
+Create a clone of `website-galuh` named `website-quiz-mvp` with simplified API and specific features:
+1.  **Student**: Take a quiz (5-10 questions), view score.
+2.  **Teacher/Admin**: Manage students, questions, grades, and export data to Excel.
+
+## User Review Required
+> [!IMPORTANT]
+> **Database Name**: I will use `quiz_mvp_db` for the new project. Please ensure you can create this database.
+> **Student UI**: I will create a simple web interface for students to take the quiz within the same app, as the original project seemed to rely on an external app for the student side (API-based).
+
+## Proposed Changes
+
+### 1. Project Setup
+- Copy `website-galuh` to `website-quiz-mvp`.
+- Update `.env` to point to `quiz_mvp_db`.
+- Install `phpoffice/phpspreadsheet` for Excel export.
+
+### 2. Database Modifications
+- Keep existing tables (`users`, `siswa`, `soal`, `nilai`, `kategori`).
+- Ensure `nilai` table can store a simple score if categories are not needed, or keep as is.
+
+### 3. Backend (API & Controllers)
+#### [MODIFY] `app/Controllers/Api/ApiController.php`
+- Update `getSoal` to accept a `limit` parameter (default 10) and return random questions.
+- Ensure it returns the correct format for the frontend.
+
+#### [MODIFY] `app/Controllers/Api/NilaiController.php`
+- Update logic to calculate score based on the submitted answers for the specific 5-10 questions.
+
+#### [NEW] `app/Controllers/Admin/ExportController.php`
+- Handle Excel export for Students and Grades.
+
+### 4. Frontend (Admin)
+#### [MODIFY] `app/Views/admin/siswa/index.php`
+- Add "Export Excel" button.
+
+#### [MODIFY] `app/Views/admin/nilai/index.php`
+- Add "Export Excel" button.
+
+### 5. Frontend (Student)
+#### [NEW] `app/Controllers/Student/QuizController.php`
+- Handle Student Login (Web), Quiz Page, and Result Page.
+
+#### [NEW] `app/Views/student/login.php`
+- Simple login for students.
+
+#### [NEW] `app/Views/student/quiz.php`
+- Interface to answer 5-10 questions.
+
+#### [NEW] `app/Views/student/result.php`
+- Show score after submission.
+
+## Verification Plan
+### Automated Tests
+- None planned for this MVP phase.
+
+### Manual Verification
+1.  **Admin**:
+    - Login.
+    - CRUD Student -> Export Excel.
+    - CRUD Question.
+    - View Grades -> Export Excel.
+2.  **Student**:
+    - Login.
+    - Take Quiz (verify 5-10 questions appear).
+    - Submit and see score.

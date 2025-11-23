@@ -1,0 +1,489 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Soal",
+        "description": "Dokumentasi API Soal & Nilai",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080/",
+            "description": "Local Server"
+        },
+        {
+            "url": "https://bimba.cognidev.my.id/",
+            "description": "Production Server"
+        }
+    ],
+    "paths": {
+        "/api/soal": {
+            "get": {
+                "tags": [
+                    "Soal"
+                ],
+                "summary": "Ambil list soal atau detail berdasarkan filter",
+                "operationId": "23a73000052fd7d86f4a4eb3d1e2a7d2",
+                "parameters": [
+                    {
+                        "name": "nomor",
+                        "in": "query",
+                        "description": "Ambil soal berdasarkan ID (nomor soal)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Berhasil ambil daftar soal",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 12
+                                            },
+                                            "soal": {
+                                                "type": "string",
+                                                "example": "Apa ibu kota Indonesia?"
+                                            },
+                                            "pilihan_a": {
+                                                "type": "string",
+                                                "example": "Jakarta"
+                                            },
+                                            "pilihan_b": {
+                                                "type": "string",
+                                                "example": "Bandung"
+                                            },
+                                            "pilihan_c": {
+                                                "type": "string",
+                                                "example": "Surabaya"
+                                            },
+                                            "pilihan_d": {
+                                                "type": "string",
+                                                "example": "Medan"
+                                            },
+                                            "jawaban": {
+                                                "type": "string",
+                                                "example": "A"
+                                            },
+                                            "bobot_nilai": {
+                                                "type": "integer",
+                                                "example": 10
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "206": {
+                        "description": "Berhasil ambil detail soal tunggal (jika pakai ?nomor=)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 12
+                                        },
+                                        "soal": {
+                                            "type": "string",
+                                            "example": "Apa ibu kota Indonesia?"
+                                        },
+                                        "pilihan_a": {
+                                            "type": "string",
+                                            "example": "Jakarta"
+                                        },
+                                        "pilihan_b": {
+                                            "type": "string",
+                                            "example": "Bandung"
+                                        },
+                                        "pilihan_c": {
+                                            "type": "string",
+                                            "example": "Surabaya"
+                                        },
+                                        "pilihan_d": {
+                                            "type": "string",
+                                            "example": "Medan"
+                                        },
+                                        "jawaban": {
+                                            "type": "string",
+                                            "example": "A"
+                                        },
+                                        "bobot_nilai": {
+                                            "type": "integer",
+                                            "example": 10
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/soal/start": {
+            "post": {
+                "tags": [
+                    "Soal"
+                ],
+                "summary": "Start Quiz - Generate 10 Soal Random",
+                "description": "Menghasilkan 10 soal acak untuk dikerjakan siswa. Return array ID soal yang sudah teracak.",
+                "operationId": "soalStart",
+                "responses": {
+                    "200": {
+                        "description": "10 soal berhasil digenerate",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "10 soal berhasil digenerate"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "soal_ids": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "integer"
+                                                    },
+                                                    "example": [
+                                                        5,
+                                                        12,
+                                                        3,
+                                                        18,
+                                                        7,
+                                                        9,
+                                                        15,
+                                                        1,
+                                                        20,
+                                                        11
+                                                    ]
+                                                },
+                                                "total_soal": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Tidak cukup soal aktif",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Tidak cukup soal aktif. Minimal 10 soal diperlukan."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/soal/submit": {
+            "post": {
+                "tags": [
+                    "Soal"
+                ],
+                "summary": "Submit Quiz - Simpan Nilai Siswa",
+                "description": "Menyimpan nilai total yang diperoleh siswa setelah menyelesaikan 10 soal. Nilai sudah dihitung di aplikasi AR.",
+                "operationId": "soalSubmit",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "siswa_id",
+                                    "total_nilai"
+                                ],
+                                "properties": {
+                                    "siswa_id": {
+                                        "type": "integer",
+                                        "example": 1,
+                                        "description": "ID siswa yang mengerjakan quiz"
+                                    },
+                                    "total_nilai": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 85.5,
+                                        "description": "Total nilai yang diperoleh (0-100)"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Nilai berhasil disimpan",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Nilai berhasil disimpan"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 15
+                                                },
+                                                "siswa_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "attempt": {
+                                                    "type": "integer",
+                                                    "example": 3
+                                                },
+                                                "total_nilai": {
+                                                    "type": "number",
+                                                    "example": 85.5
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validasi error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "siswa_id is required"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Login Siswa"
+                ],
+                "summary": "Login Siswa",
+                "operationId": "af8e209c560b9dd5cd761c2725e84b43",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login berhasil",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Username and password are required"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Invalid username or password"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/nilai": {
+            "get": {
+                "tags": [
+                    "Nilai"
+                ],
+                "summary": "Get Nilai Siswa (History)",
+                "operationId": "9aeb54bc693ce5065c0425c50afa99d8",
+                "parameters": [
+                    {
+                        "name": "siswa_id",
+                        "in": "query",
+                        "description": "ID siswa untuk mengambil histori nilai (REQUIRED)",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Berhasil mengambil data nilai",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "siswa_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "attempt": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "nilai_numerik": {
+                                                        "type": "number",
+                                                        "example": 80
+                                                    },
+                                                    "nilai_color": {
+                                                        "type": "number",
+                                                        "example": 80
+                                                    },
+                                                    "nilai_greeting": {
+                                                        "type": "number",
+                                                        "example": 80
+                                                    },
+                                                    "nilai_family": {
+                                                        "type": "number",
+                                                        "example": 80
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Login Siswa",
+            "description": "Endpoint untuk login siswa"
+        },
+        {
+            "name": "Soal",
+            "description": "Endpoint untuk soal - Get soal, Start quiz, Submit quiz"
+        },
+        {
+            "name": "Nilai",
+            "description": "Endpoint untuk melihat history nilai per siswa"
+        }
+    ]
+}
