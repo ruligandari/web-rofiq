@@ -5,15 +5,7 @@
     <div class="card-body">
         <h5 class="card-title fw-semibold mb-4">Edit Siswa</h5>
         
-        <?php if(session()->getFlashdata('errors')):?>
-            <div class="alert alert-danger">
-                <ul>
-                <?php foreach(session()->getFlashdata('errors') as $error): ?>
-                    <li><?= $error ?></li>
-                <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endif;?>
+
 
         <form action="<?= base_url('admin/siswa/update/'.$siswa['id']) ?>" method="post">
             <div class="mb-3">

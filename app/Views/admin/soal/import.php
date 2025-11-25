@@ -10,9 +10,7 @@
             </div>
             <form action="<?= base_url('admin/soal/import') ?>" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
-                    <?php if(session()->getFlashdata('error')):?>
-                        <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
-                    <?php endif;?>
+
 
                     <div class="alert alert-info">
                         <strong>Format Excel yang diharapkan:</strong>

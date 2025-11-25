@@ -43,6 +43,46 @@
     <script>
         $(document).ready(function () {
             $('.table').DataTable();
+
+            // SweetAlert for Success
+            <?php if (session()->getFlashdata('success')) : ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: '<?= session()->getFlashdata('success') ?>',
+                    timer: 3000,
+                    showConfirmButton: false
+                });
+            <?php endif; ?>
+
+            // SweetAlert for Error
+            <?php if (session()->getFlashdata('error')) : ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: '<?= session()->getFlashdata('error') ?>',
+                });
+            <?php endif; ?>
+
+            // SweetAlert for Validation Errors
+            <?php if (session()->getFlashdata('errors')) : ?>
+                <?php 
+                    $errors = session()->getFlashdata('errors');
+                    $error_list = '';
+                    if(is_array($errors)) {
+                        foreach($errors as $error) {
+                            $error_list .= $error . '<br>';
+                        }
+                    } else {
+                        $error_list = $errors;
+                    }
+                ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Validasi Gagal!',
+                    html: '<?= $error_list ?>',
+                });
+            <?php endif; ?>
         });
 
         function deleteConfirm(url) {
